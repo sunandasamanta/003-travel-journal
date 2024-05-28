@@ -7,26 +7,27 @@ import mountFuji from "@/public/mount-fuji.jpg"
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 
-export default function Card() {
+export default function Card(props: any) {
+    
     return (
-        <div className="p-6 flex items-center gap-4">
-            <div className="overflow-hidden rounded-xl w-1/2">
+        <div className="p-6 flex justify-center items-center gap-4">
+            <div className="overflow-hidden rounded-xl w-max">
                 <Image
-                    src={mountFuji}
+                    src={props.imgSrc}
                     className="w-60 hover:scale-[110%] duration-300"
                     alt="mount-fuji"
                 />
             </div>
-            <div className="">
+            <div className="w-2/3">
                 <p className="flex items-center">
                     <span className="text-red-300"><LocationOnIcon /></span>
-                    <span className="tracking-widest">JAPAN</span>
+                    <span className="tracking-widest">{props.country}</span>
                     <span className="underline mx-3 text-gray-400">View on Google Maps</span>
                 </p>
-                <h1 className="font-bold text-4xl my-2">Mount Fuji</h1>
-                <h2 className="font-medium pt-3 mb-1">12 Jan, 2024 - 24 Jan, 2024</h2>
+                <h1 className="font-bold text-4xl my-2">{props.place}</h1>
+                <h2 className="font-medium pt-3 mb-1">{props.dateVisited}</h2>
                 <p className="">
-                    Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.
+                    {props.description}
                 </p>
             </div>
         </div>
